@@ -1,21 +1,11 @@
 package todoapp;
-import todoapp.DodawanieZadanFrame;
-import java.sql.*;
-import javax.persistence.Table;
+
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import javax.swing.JTextArea;
-import java.sql.PreparedStatement;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -65,7 +55,7 @@ public void baza(String Title, String Description, String FinishDate){
                     "user","Khj2j784");
             //przygotowanie zapytania
             Statement skladnia=polaczenie.createStatement();
-            skladnia.addBatch("INSERT INTO Task VALUES(\'"+Title+"\',\'"
+            skladnia.addBatch("INSERT INTO Task(Title,Description,Finishdate) VALUES(\'"+Title+"\',\'"
                     +Description+"\',"+FinishDate+")");
             skladnia.executeBatch();
             JOptionPane.showMessageDialog(null,"zapisano dane","Tasks",
